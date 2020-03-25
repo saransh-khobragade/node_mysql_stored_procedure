@@ -16,11 +16,12 @@ class Stored_procedure_helper{
             let flag = true
             for(const x of arg){
                 const patt = /[.*+?^${}()<>;!@#%&?,|[\]\\]/g;
-                if(patt.test(x)){
+                if(x && Array.isArray(x)){
+                    return this.validate_arg(x)
+                }else if(!x || patt.test(x)){
                     flag = false
                     break
-                    
-                } 
+                }
             }
             return flag
         }   
@@ -29,7 +30,6 @@ class Stored_procedure_helper{
         }
     }
     format_arg(arg){
-        
         let result=''
         arg.forEach((x)=>{
             if(Array.isArray(x)){

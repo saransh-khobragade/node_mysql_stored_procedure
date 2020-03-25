@@ -1,9 +1,10 @@
 const SP_GETMESSAGE = { name:'SP_GETMESSAGE',query:
     `CREATE PROCEDURE SP_GETMESSAGE(
-        IN var_id VARCHAR(20)
+        IN var_name VARCHAR(20),
+        IN var_id CHAR(255)
     )
     BEGIN
-        SELECT * from Agent where agent_code = var_id;
+        SELECT * from Agent where AGENT_NAME = var_name and COMMISSION in (var_id);
     END`}
 
 const all_store_procedure = [

@@ -6,8 +6,13 @@ const sproc = require('./sprocs/sproc_main')
 
 app.get('/sp_get_message', async (req, res) => {
     try{
-        const id = req.query.agent_id
-        const result = await sproc.run_sp('SP_GETMESSAGE',[id],res)
+        const name = req.query.name
+        let id_range = req.query.commision
+        id_range = id_range.split(',')
+        id_range = id_range.map(x=>parseInt(x))
+
+        const result = await sproc.run_sp('SP_GETMESSAGE',[name,id_range],res)
+
         return res.status(200).json(result[0])
     }catch(err){
         return res.status(400).json({err:err.message})
