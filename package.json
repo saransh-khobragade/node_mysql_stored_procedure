@@ -1,0 +1,17 @@
+{
+  "name": "node_stored_procedure",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saransh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.1",
+    "http": "0.0.1-security",
+    "request": "2.88.2",
+    "mysql2":"2.1.0"
+  }
+}
